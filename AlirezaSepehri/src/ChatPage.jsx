@@ -1,7 +1,7 @@
 import farawin from "farawin";
 import SideBar from "./SideBar";
 import ContentBox from "./ContentBox";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ChatPage() {
   const [contactList, setContactList] = useState(null);
@@ -35,9 +35,9 @@ export default function ChatPage() {
       setChatList(
         response.chatList
           .filter(
-            (message) =>
-              message.sender == localStorage.username ||
-              message.receiver == localStorage.username
+            (chat) =>
+              chat.sender == localStorage.username ||
+              chat.receiver == localStorage.username
           )
           .sort((a, b) => new Date(a.date) - new Date(b.date))
       );
@@ -47,9 +47,9 @@ export default function ChatPage() {
         setChatList(
           response.chatList
             .filter(
-              (message) =>
-                message.sender == localStorage.username ||
-                message.receiver == localStorage.username
+              (chat) =>
+                chat.sender == localStorage.username ||
+                chat.receiver == localStorage.username
             )
             .sort((a, b) => new Date(a.date) - new Date(b.date))
         );
@@ -66,11 +66,16 @@ export default function ChatPage() {
         contacts={contactList}
         selectedContact={selectedContact}
         setSelectedContact={setSelectedContact}
+        chatList={chatList}
       />
       <ContentBox
         setContacts={setContactList}
         selectedContact={selectedContact}
-        chats={chatList}
+        chats={chatList?.filter(
+          (chat) =>
+            chat.receiver == selectedContact.username ||
+            chat.sender == selectedContact.username
+        )}
         setChats={setChatList}
       />
     </div>

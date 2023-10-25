@@ -16,13 +16,11 @@ export default function ContentBox({
   chats,
   setChats,
 }) {
-  
   const [addBox, setAddbox] = useState(false);
   const [editBox, setEditbox] = useState(false);
   const [myMessage, setMymessage] = useState("");
 
   let ref = useRef();
-  console.log(selectedContact);
   return (
     <div className="flex-1 px-3">
       <div className="flex flex-col h-full">

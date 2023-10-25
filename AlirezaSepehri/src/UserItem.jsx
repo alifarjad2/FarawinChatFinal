@@ -1,6 +1,11 @@
 import ContactIcon from "./contactIcon";
 
-export default function UserItem({ contact, selected, styleSelected }) {
+export default function UserItem({
+  contact,
+  selected,
+  styleSelected,
+  lastChat,
+}) {
   return (
     <div
       onClick={selected}
@@ -10,17 +15,17 @@ export default function UserItem({ contact, selected, styleSelected }) {
         styleSelected
       }
     >
-      
       <ContactIcon name={contact.name} />
       <div className="w-2/3 flex-1">
+        <p className="text-sm text-slate-200">{contact.name}</p>
         <div className="flex justify-between">
-          <span className="text-sm text-slate-200">{contact.name}</span>
-          <span className="text-xs text-slate-500">4m</span>
+          <p className="text-[10px] w-2/3 h-5 overflow-ellipsis font-medium text-slate-500">
+            {lastChat ? lastChat.text : "پیامی وجود ندارد"}
+          </p>
+          <p className="w-1/3 text-xs text-slate-500 ">
+            {lastChat && lastChat.date.toLocaleString("fa")}
+          </p>
         </div>
-        <p className="text-[10px] w-11/12 h-5 overflow-ellipsis font-medium text-slate-500">
-          سلام خوبی چه خبر؟ پروژه را به کجا رسوندی؟ سلام خوبی چه خبر ؟ پروژه را
-          به کجا رسوندی؟
-        </p>
       </div>
     </div>
   );

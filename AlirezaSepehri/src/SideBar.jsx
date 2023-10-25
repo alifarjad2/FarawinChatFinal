@@ -5,6 +5,7 @@ export default function SideBar({
   contacts,
   selectedContact,
   setSelectedContact,
+  chatList,
 }) {
   const [filterSearch, setFilterSearch] = useState("");
   return (
@@ -32,13 +33,19 @@ export default function SideBar({
       <div className="overflow-y-auto flex-1 mb-12">
         {contacts && contacts.length == 0 ? (
           <p className="text-center text-sm text-slate-500 mt-16">
-            لیست مخاطبین خالی است<br/>
+            لیست مخاطبین خالی است
+            <br />
             مخاطبین خود را اضافه کنید
           </p>
         ) : (
           contacts
             ?.filter((row) => row.username.includes(filterSearch))
             .map((row) => {
+              const chats = chatList?.filter(
+                (chat) =>
+                  chat.receiver == row.username ||
+                  chat.sender == row.username
+              )
               return (
                 <UserItem
                   key={row.username}
@@ -49,6 +56,7 @@ export default function SideBar({
                       ? "bg-[#30323e]"
                       : ""
                   }
+                  lastChat={chats && chats[chats.length - 1]}
                 />
               );
             })
