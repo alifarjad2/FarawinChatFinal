@@ -1,0 +1,50 @@
+@import url("https://v1.fontapi.ir/css/Estedad");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: Estedad, "Estedad", Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+/* عرض اسکرول را مشخص می کنیم */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* رنگ اون قسمتی که هنور اسکرول نشده */
+::-webkit-scrollbar-track {
+  background: #2E333D;
+}
+
+/* رنگ اون قسمتی که اسکرو میشه */
+::-webkit-scrollbar-thumb {
+  background: #dfdfdf;
+}
+
+
+/* استایل راست کلید کردن پیام ها */
+.rightClick {
+  position: fixed;
+  background: #54606c;
+}
+.menuElement {
+  color: #222222;
+  cursor: pointer;
+  padding: 10px 30px;
+}
+.menuElement:hover {
+  color: #fff;
+  background: #009688;
+}
