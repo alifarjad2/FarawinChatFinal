@@ -7,7 +7,9 @@ const Login = lazy(() => import("@/components/FormAuth/Login"));
 const Modal = lazy(() => import("@/components/chat/components-chatPage/Modal"));
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter
+      basename={location.pathname.substring(0, location.pathname.length - 1)}
+    >
       <Routes>
         <Route
           path="*"
