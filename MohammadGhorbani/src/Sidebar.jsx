@@ -110,9 +110,13 @@ function Sidebar({
                     <div
                       key={index}
                       onClick={() => handleContactClick(contact)}
-                      className="flex flex-row hover:bg-[#2E333D] rounded-3xl h-24 w-full m-auto cursor-pointer relative hover:text-black "
+                      className={` flex flex-row hover:bg-[#2e333d9a] rounded-3xl h-24 w-full m-auto cursor-pointer relative hover:text-black  transition ease-in-out delay-75 hover:translate-y-1 hover:scale-95 duration-500 ${
+                        selectedContact?.username === contact?.username
+                          ? " bg-[#2E333D] "
+                          : null
+                      } `}
                     >
-                      <div className="bg-white w-16 h-16 rounded-2xl text-center py-4 text-xl text-black absolute right-3 top-4">
+                      <div className=" bg-white w-16 h-16 rounded-2xl text-center py-4 text-xl text-black absolute right-3 top-4 ">
                         {contact.name[0]}
                       </div>
                       <div className="absolute right-24 top-5 text-xl">

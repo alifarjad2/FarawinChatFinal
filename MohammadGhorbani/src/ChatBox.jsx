@@ -147,7 +147,7 @@ function ChatBox({
   return (
     <>
       {!selectedContact ? (
-        <div className="w-2/3 h-full flex flex-col bg-[#202329] justify-center text-2xl font-bold text-center  max-lg:w-full">
+        <div className="w-2/3 h-full flex flex-col bg-[#202329] justify-center text-2xl font-bold text-center max-lg:w-full">
           لطفا یک مخاطب انتخاب کنید
           <img
             title="خروج از اکانت "
@@ -241,7 +241,7 @@ function ChatBox({
                         : " bg-[#6b8afe] rounded-3xl rounded-br-none text-right w-fit max-w-xl min-w-[8rem] max-lg:max-w-md  max-md:max-w-sm m-auto break-words "
                     } p-3 `}
                   >
-                    <p className="text-lg overflow-auto font-sans ">
+                    <p className="text-lg overflow-auto font-sans select-auto ">
                       {message.text}
                     </p>
 
@@ -266,16 +266,17 @@ function ChatBox({
                           <img src={ImageDelete} alt="delete" />
                         </button>
                       )}
-                      {message.sender === localStorage.myUsername &&
-                      <button
-                        onClick={() => {
-                          setSelectedChat(message);
-                          editChat();
-                        }}
-                        className={`w-5 absolute left-5 -bottom-1`}
-                      >
-                        <img src={ImageEditMessageWhite} alt="editMessage" />
-                      </button>}
+                      {message.sender === localStorage.myUsername && (
+                        <button
+                          onClick={() => {
+                            setSelectedChat(message);
+                            editChat();
+                          }}
+                          className={`w-5 absolute left-5 -bottom-1`}
+                        >
+                          <img src={ImageEditMessageWhite} alt="editMessage" />
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -292,12 +293,12 @@ function ChatBox({
                   alert("این امکان هنوز پیاده سازی نشده است");
                 }}
               />
-              <input
+              <textarea
                 onChange={handleSendMessage}
                 onKeyDown={handleKeyPress}
                 placeholder="پیام خود را بنویسید"
                 type="text"
-                className="bg-inherit w-full px-5 h-full m-auto rounded-2xl focus:outline-none text-right text-lg"
+                className="resize-none py-3 bg-inherit w-full px-5 h-full m-auto rounded-2xl focus:outline-none text-right text-lg"
               />
               <button
                 type="button"

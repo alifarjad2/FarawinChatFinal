@@ -28,15 +28,15 @@ export default function EditContact({ setCloseEditContact, closeEditContact }) {
   return (
     <div
       className={`absolute flex justify-center items-center top-0 bottom-0 right-0 left-0 backdrop-blur-sm z-10  ${
-        closeEditContact ? "hidden" : null
+        closeEditContact ? " hidden" : null
       }`}
     >
-      <form className="relative flex items-center flex-col px-5 py-4 gap-y-4 w-96 rounded-2xl bg-[#2E333D] z-20">
+      <form className="relative flex items-center flex-col px-5 py-4 gap-y-4 w-96 rounded-3xl bg-[#2E333D] z-20 ">
         <div
           onClick={() => {
             setCloseEditContact(true);
           }}
-          className="absolute w-10 left-2 top-2 rounded-full p-1 hover:bg-red-500"
+          className="absolute w-10 left-2 top-2 rounded-2xl p-1 hover:bg-red-500"
         >
           <img src={ImageClose} alt="Close" />
         </div>
