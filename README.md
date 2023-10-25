@@ -47,6 +47,6 @@ https://docs.google.com/document/d/1wCyCf_wjd5xZ4b06qnFrbEg29AYGtQYyWJ0-Or-O6Xg/
 
 [SaeedSaadatifar](SaeedSaadatifar/dist)
 
-[MohaddesehHeydari](SamaneGhaMohaddesehHeydarizanfari/dist)
+[MohaddesehHeydari](MohaddesehHeydari/dist)
 
 [ParisaElahi](ParisaElahi/dist)
