@@ -1,27 +1,22 @@
-import { useState } from "react";
-import LoginPage from "./LoginPage";
 import ChatPage from "./ChatPage";
+import FormAuth from "./FormAuth";
 
-export default function App() {
-  // استیت نگهدارنده صفحه جاری (لاگین صفحه جاری پیشفرض است)
-  const [page, setPage] = useState("login");
-  // استیت نگهدارنده کاربر لاگین کرده
-  const [user, setUser] = useState("");
-
+function App() {
   return (
     <div
       className="select-none flex justify-center items-center py-10 min-h-full h-max"
       style={{
         background: `url(
-          https://colorlib.com/etc/lf/Login_v4/images/bg-01.jpg
-        ) no-repeat`,
+        https://colorlib.com/etc/lf/Login_v4/images/bg-01.jpg
+      )`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "100%  100%",
       }}
     >
-      {page === "login" ? (
-        <LoginPage setPage={setPage} setUser={setUser} />
-      ) : (
-        <ChatPage user={user} />
-      )}
+      {localStorage.username && <ChatPage />}
+      {!localStorage.username && <FormAuth />}
     </div>
   );
 }
+
+export default App;
