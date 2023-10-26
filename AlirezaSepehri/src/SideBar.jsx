@@ -29,7 +29,7 @@ export default function SideBar({
             <path d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
           </svg>
           <input
-            className="bg-[#30323e] text-[#ababb3] placeholder-slate-400 block focus:ring-2 focus:ring-slate-500 focus:outline-none appearance-none w-full text-sm leading-6 rounded-2xl py-2 pr-10 shadow-sm"
+            className="bg-[#30323e] mt-1 text-[#ababb3] placeholder-slate-400 block focus:ring-2 focus:ring-slate-500 focus:outline-none appearance-none w-full text-sm leading-6 rounded-2xl py-2 pr-10 shadow-sm"
             type="text"
             aria-label="Filter projects"
             placeholder="جستجو ..."
