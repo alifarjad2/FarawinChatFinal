@@ -51,3 +51,7 @@ body {
 .box_shadow {
   box-shadow: 1px 3px 8px -4px #000;
 }
+
+.shadow_sidebar {
+  box-shadow: 0 0 7px #cccccc2b;
+}

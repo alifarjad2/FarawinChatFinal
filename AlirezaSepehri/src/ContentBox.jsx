@@ -15,6 +15,7 @@ export default function ContentBox({
   selectedContact,
   chats,
   setChats,
+  setWidth,
 }) {
   const [addBox, setAddbox] = useState(false);
   const [editBox, setEditbox] = useState(false);
@@ -59,6 +60,7 @@ export default function ContentBox({
               alt="exit_icon"
             />
             <img
+              onClick={() => setWidth("w-8/12")}
               className="lg:hidden ml-2 h-5 cursor-pointer relative z-10 mt-[2px]"
               src={IconMenuHmbg}
               alt="menu_icon"
@@ -66,7 +68,10 @@ export default function ContentBox({
           </div>
         </div>
 
-        <div className=" flex-1 overflow-y-scroll">
+        <div
+          onClick={() => setWidth("w-0")}
+          className=" flex-1 overflow-y-scroll"
+        >
           {selectedContact ? (
             <div>
               {chats.length != 0 ? (

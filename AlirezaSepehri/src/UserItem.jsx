@@ -16,7 +16,7 @@ export default function UserItem({
       }
     >
       <ContactIcon name={contact.name} />
-      <div className="w-2/3 flex-1">
+      <div className="w-2/3 flex-1 overflow-hidden">
         <p className="text-sm text-slate-200">{contact.name}</p>
         <div className="flex justify-between">
           <p className="text-[10px] w-2/3 h-5 overflow-ellipsis font-medium text-slate-500">

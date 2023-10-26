@@ -6,10 +6,17 @@ export default function SideBar({
   selectedContact,
   setSelectedContact,
   chatList,
+  widthSidbar,
 }) {
   const [filterSearch, setFilterSearch] = useState("");
   return (
-    <div className="hidden lg:flex flex-col w-1/3 h-full">
+    <div
+      className={
+        widthSidbar +
+        ` shadow_sidebar flex flex-col bg-inherit z-50 overflow-hidden absolute top-0 bottom-0
+        left-0 rounded-2xl py-6 lg:w-1/3 lg:static lg:py-0 lg:shadow-none lg:rounded-none`
+      }
+    >
       <header className="mb-2 h-12">
         <form className="group relative w-10/12 mx-auto">
           <svg
@@ -43,9 +50,8 @@ export default function SideBar({
             .map((row) => {
               const chats = chatList?.filter(
                 (chat) =>
-                  chat.receiver == row.username ||
-                  chat.sender == row.username
-              )
+                  chat.receiver == row.username || chat.sender == row.username
+              );
               return (
                 <UserItem
                   key={row.username}

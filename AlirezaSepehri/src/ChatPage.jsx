@@ -7,6 +7,7 @@ export default function ChatPage() {
   const [contactList, setContactList] = useState(null);
   const [selectedContact, setSelectedContact] = useState("");
   const [chatList, setChatList] = useState(null);
+  const [widthSidbar, setWidth] = useState('w-0')
 
   useEffect(() => {
     farawin.getContacts().then((response) => {
@@ -61,12 +62,13 @@ export default function ChatPage() {
   }, []);
 
   return (
-    <div className="box_shadow flex w-9/12 h-[90vh] bg-[#20232a] text-white rounded-2xl pt-6 pb-1 mx-3">
+    <div className="box_shadow relative flex w-9/12 h-[90vh] bg-[#20232a] overflow-hidden text-white rounded-2xl pt-6 pb-1 mx-3">
       <SideBar
         contacts={contactList}
         selectedContact={selectedContact}
         setSelectedContact={setSelectedContact}
         chatList={chatList}
+        widthSidbar={widthSidbar}
       />
       <ContentBox
         setContacts={setContactList}
@@ -77,6 +79,7 @@ export default function ChatPage() {
             chat.sender == selectedContact.username
         )}
         setChats={setChatList}
+        setWidth={setWidth}
       />
     </div>
   );
