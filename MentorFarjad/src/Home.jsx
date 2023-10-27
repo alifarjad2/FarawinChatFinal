@@ -5,7 +5,7 @@ import imgPmLeft from "./images/pm-left.png";
 import imgPmRight from "./images/pm-right.png";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 
-let _currentUser = JSON.parse(atob(localStorage.token));
+let _currentUser = JSON.parse(decodeURIComponent(atob(localStorage.token)));
 let currentUserName = _currentUser.username;
 
 export const DataContext = createContext({
