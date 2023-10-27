@@ -21,6 +21,12 @@ export default function ContentBox({
   const [editBox, setEditbox] = useState(false);
   const [myMessage, setMymessage] = useState("");
 
+  let Day = "";
+  let today = new Date().toLocaleDateString("fa-ir", {
+    day: "numeric",
+    month: "long",
+  });
+
   let ref = useRef();
   return (
     <div className="flex-1 px-3">
@@ -76,7 +82,18 @@ export default function ContentBox({
             <div>
               {chats.length != 0 ? (
                 chats.map((row) => {
-                  if (row.sender == selectedContact.username)
+                  let rowDate = new Date(row.date).toLocaleDateString("fa-ir", {
+                    day: "numeric",
+                    month: "long",
+                  });
+                  if (rowDate !== Day) {
+                    Day = rowDate;
+                    return (
+                      <div className="w-fit m-auto my-3 py-1 px-16 rounded-lg text-gray-400 bg-[#10142154] text-xs">
+                        {Day == today ? "امروز" : rowDate}
+                      </div>
+                    );
+                  } else if (row.sender == selectedContact.username)
                     return (
                       <MassageItem
                         key={row.date}
