@@ -16,14 +16,43 @@ export default function UserItem({
       }
     >
       <ContactIcon name={contact.name} />
-      <div className="w-2/3 flex-1">
+      <div className="w-2/3 flex-1 overflow-hidden">
         <p className="text-sm text-slate-200">{contact.name}</p>
         <div className="flex justify-between">
           <p className="text-[10px] w-2/3 h-5 overflow-ellipsis font-medium text-slate-500">
             {lastChat ? lastChat.text : "پیامی وجود ندارد"}
           </p>
-          <p className="w-1/3 text-xs text-slate-500 ">
-            {lastChat && lastChat.date.toLocaleString("fa")}
+          <p className="w-1/3 text-[10px] text-slate-500 text-left">
+            {lastChat &&
+              ((new Date() - new Date(lastChat?.date)) / 1000 >= 1
+                ? (new Date() - new Date(lastChat?.date)) / 1000 < 60
+                  ? `${Math.ceil(
+                      (new Date() - new Date(lastChat?.date)) / 1000
+                    )} ثانیه قبل`
+                  : Math.ceil(
+                      (new Date() - new Date(lastChat?.date)) / (1000 * 60)
+                    ) < 60
+                  ? `${Math.ceil(
+                      (new Date() - new Date(lastChat?.date)) / (1000 * 60)
+                    )} دقیقه قبل`
+                  : Math.ceil(
+                      (new Date() - new Date(lastChat?.date)) / (1000 * 60 * 60)
+                    ) < 24
+                  ? `${Math.ceil(
+                      (new Date() - new Date(lastChat?.date)) / (1000 * 60 * 60)
+                    )} ساعت قبل`
+                  : Math.ceil(
+                      (new Date() - new Date(lastChat?.date)) /
+                        (1000 * 60 * 60 * 24)
+                    ) == 1
+                  ? `دیروز`
+                  : `${new Date(lastChat?.date).toLocaleString("fa-ir", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                    })}`
+                : `Just Now`)}
+            {/* {lastChat && lastChat.date.toLocaleString("fa")} */}
           </p>
         </div>
       </div>

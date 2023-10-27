@@ -10,7 +10,7 @@ function breakName(name) {
 export default function ContactIcon({ name }) {
   return (
     <div
-      className={`w-[42px] h-[40px] rounded-xl text-yellow-300 text-[16px] 
+      className={`box_shadow w-[42px] h-[40px] rounded-xl text-yellow-300 text-[16px] 
     text-center pt-[7px] font-semibold ml-2 shadow-sm bg-pink-600`}
     >
       {breakName(name)}
