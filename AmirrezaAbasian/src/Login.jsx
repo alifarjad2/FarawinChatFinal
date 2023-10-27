@@ -36,14 +36,19 @@ function Login({ isRegister, setIsRegister }) {
         })
         setPass('')
         setUsername('')
+        setTimeout(() => {
+            localStorage.token && window.location.reload()
+            localStorage.userPhoneNumber = userName
+            console.log('Reloading now !', isRegister);
+        }, 1000);
     }
 
     return (
         <form className='login flex-col media flex justify-start bg-stone-100 mx-auto my-10 min-h-[90vh] max-w-lg rounded-xl'>
             <div className='mt-16 text-center h-[10rem]'><h1 className='text-6xl font-bold font-login'>Login</h1></div>
             <div className='mx-6 h-28 flex flex-col bg-stone-100' >
-                <span className='h-1/6 ml-4'>Username</span>
-                <input onChange={(e) => setUsername(e.target.value)} value={userName} type="text" placeholder='Type your username' className={`${(isValidPhoneNumber) ? 'focus:border-green-500' : 'focus:border-rose-700'} focus:border-black transition duration-300 text-2xl px-4 placeholder:pl-4 bg-stone-100 outline-none border-b-2 h-5/6 border-[#a9a9a9]`} />
+                <span className='h-1/6 ml-4'>Phone number</span>
+                <input onChange={(e) => setUsername(e.target.value)} value={userName} type="text" placeholder='Type your phone number' className={`${(isValidPhoneNumber) ? 'focus:border-green-500' : 'focus:border-rose-700'} focus:border-black transition duration-300 text-2xl px-4 placeholder:pl-4 bg-stone-100 outline-none border-b-2 h-5/6 border-[#a9a9a9]`} />
             </div>
             <div className='mx-6 mt-6 h-28 flex flex-col bg-stone-100'>
                 <span className='h-1/6 ml-4'>Password</span>
