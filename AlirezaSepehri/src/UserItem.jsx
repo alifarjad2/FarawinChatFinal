@@ -19,10 +19,10 @@ export default function UserItem({
       <div className="w-2/3 flex-1 overflow-hidden">
         <p className="text-sm text-slate-200">{contact.name}</p>
         <div className="flex justify-between">
-          <p className="text-[10px] w-2/3 h-5 overflow-ellipsis font-medium text-slate-500">
+          <p className="text-[10px] flex-1 h-5 overflow-ellipsis font-medium text-slate-500">
             {lastChat ? lastChat.text : "پیامی وجود ندارد"}
           </p>
-          <p className="w-1/3 text-[10px] text-slate-500 text-left">
+          <p className="w-max text-[10px] text-slate-500 text-left">
             {lastChat &&
               ((new Date() - new Date(lastChat?.date)) / 1000 >= 1
                 ? (new Date() - new Date(lastChat?.date)) / 1000 < 60
